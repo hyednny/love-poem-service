@@ -1,8 +1,8 @@
 import { Module, NestModule } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule } from '@nestjs/config';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { UsersController } from './controller/users.controller';
+import { UsersService } from './service/users.service';
 import mongoose from 'mongoose';
 
 @Module({
@@ -10,8 +10,8 @@ import mongoose from 'mongoose';
     ConfigModule.forRoot({ isGlobal: true }),
     MongooseModule.forRoot(process.env.MONGODB_URI, { connectionName: '' }),
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [UsersController],
+  providers: [UsersService],
 })
 export class AppModule implements NestModule {
   configure() {
