@@ -8,6 +8,10 @@ const options: SchemaOptions = {
 
 @Schema(options)
 export class Poem extends Document {
+  @Prop({ required: true, unique: true })
+  @IsNotEmpty()
+  id: number;
+
   @Prop({ required: true })
   @IsNotEmpty()
   name: string;
